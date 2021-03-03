@@ -2,14 +2,14 @@
 $m = "/root";
 require('conf.php');
 $info = json_decode(file_get_contents('info.json'),true);
-$token =  readline("1662260518:AAGr-0b6TuOqOqifhp9MUacmnaS3DSpAMhw");
-$id = readline("1632008076");
+$token =  readline("Enter Token : ");
+$id = readline("Enter iD : ");
 $info["token"] = "$token";
 file_put_contents($m.'/info.json', json_encode($info));
 $info["id"] = "$id";
 file_put_contents($m.'/info.json', json_encode($info));
 $tg = new Telegram($info["token"]);
-$lastupdid = 1; 
+$lastupdid = 1;
 while(true){ 
 $upd = $tg->vtcor("getUpdates", ["offset" => $lastupdid]);
  if(isset($upd['result'][0])){
